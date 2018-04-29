@@ -35,45 +35,45 @@ TM1637_WRITE_BYTE:
 
   _WRITE_BYTE_BIT:
     cbi DSPLPORT, DSPLCLK
-	asr dsplByte
-	brcs _WRITE_BYTE_BIT_1
+    asr dsplByte
+    brcs _WRITE_BYTE_BIT_1
 
-	_WRITE_BYTE_BIT_0:
-	  cbi DSPLPORT, DSPLDIO
-	  rjmp _WRITE_BYTE_NEXT_BIT
+    _WRITE_BYTE_BIT_0:
+      cbi DSPLPORT, DSPLDIO
+      rjmp _WRITE_BYTE_NEXT_BIT
 
-	_WRITE_BYTE_BIT_1:
-	  sbi DSPLPORT, DSPLDIO
+    _WRITE_BYTE_BIT_1:
+      sbi DSPLPORT, DSPLDIO
 
-	_WRITE_BYTE_NEXT_BIT:
+    _WRITE_BYTE_NEXT_BIT:
       nop
-	  nop
-	  nop
+      nop
+      nop
       sbi DSPLPORT, DSPLCLK
       nop
-	  nop
-	  nop
-	  dec R0
-	  brne _WRITE_BYTE_BIT
+      nop
+      nop
+      dec R0
+      brne _WRITE_BYTE_BIT
 
   _WRITE_BYTE_WAIT_ACK:
     cbi DSPLPORT, DSPLCLK
     nop
-	nop
-	nop
-	nop
-	nop
-	cbi DSPLDDR, DSPLDIO
-	sbic DSPLPIN, DSPLDIO
-	rjmp _WRITE_BYTE_WAIT_ACK_END
+    nop
+    nop
+    nop
+    nop
+    cbi DSPLDDR, DSPLDIO
+    sbic DSPLPIN, DSPLDIO
+    rjmp _WRITE_BYTE_WAIT_ACK_END
 
-	  sbi DSPLPORT, DSPLCLK
-      nop
-	  nop
-	  cbi DSPLPORT, DSPLCLK
+    sbi DSPLPORT, DSPLCLK
+    nop
+    nop
+    cbi DSPLPORT, DSPLCLK
 
-	_WRITE_BYTE_WAIT_ACK_END:
-	  sbi DSPLDDR, DSPLDIO
+  _WRITE_BYTE_WAIT_ACK_END:
+    sbi DSPLDDR, DSPLDIO
 
   pop R0
   ret
@@ -145,22 +145,22 @@ TM1637_RUN:
     ldi ZH, high(2*symbols)
     ldi ZL, low(2*symbols)
 
-	ld tmp, -Y
-	add ZL, tmp
-	clr tmp
-	adc ZH, tmp
-	lpm dsplByte, Z
+    ld tmp, -Y
+    add ZL, tmp
+    clr tmp
+    adc ZH, tmp
+    lpm dsplByte, Z
 
-	ldi tmp, 0x02
-	cp tmp, R0
-	brne PC+3
-	ldi tmp, 0x80
-	or dsplByte, tmp
+    ldi tmp, 0x02
+    cp tmp, R0
+    brne PC+3
+    ldi tmp, 0x80
+    or dsplByte, tmp
 
     rcall TM1637_WRITE_BYTE
 
     dec R0
-	brne _TM1637_RUN_SET_ELEMENT
+    brne _TM1637_RUN_SET_ELEMENT
 
   rcall TM1637_STOP
 
