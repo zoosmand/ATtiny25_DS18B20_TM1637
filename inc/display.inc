@@ -50,34 +50,34 @@ SET_DISPLAY_SYMBOLS:
   _GET_DECIMAL_DATA:
     mov tmp, tmpL
     andi tmp, (0x0f<<0)
-	mov R0, tmp
+    mov R0, tmp
 
-	rcall MUL_8BIT_BY_100
+    rcall MUL_8BIT_BY_100
 
     ldi tmp, 0x04
     mov R2, tmp
-	_DIV_DECIMAL_BY_16:
-	  lsr R1
-	  ror R0
-	  dec R2
-	  brne _DIV_DECIMAL_BY_16
+    _DIV_DECIMAL_BY_16:
+      lsr R1
+      ror R0
+      dec R2
+      brne _DIV_DECIMAL_BY_16
 
     push tmpL
-	mov tmpL, R0
-	ldi YL, low(decnum)
+    mov tmpL, R0
+    ldi YL, low(decnum)
     ldi YH, high(decnum)
 
     rcall BIN8_DEC3
-	pop tmpL
-	ld tmp, -Y
-	ld tmpD, -Y
+    pop tmpL
+    ld tmp, -Y
+    ld tmpD, -Y
 
   ;********** Get Integral **********
   ldi tmp, 0x04
   mov R0, tmp
   _DIV_INTEGRAL_BY_16:
     lsr tmpH
-	ror tmpL
+    ror tmpL
     dec R0
     brne _DIV_INTEGRAL_BY_16
 
