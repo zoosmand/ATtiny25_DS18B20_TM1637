@@ -21,42 +21,42 @@
 .def tmpD     = R23
 
 
-.equ INTDDR		= DDRB
-.equ INTPORT	= PORTB
-.equ INTPIN		= PINB
-.equ INT0PIN	= PB2
+.equ INTDDR   = DDRB
+.equ INTPORT  = PORTB
+.equ INTPIN   = PINB
+.equ INT0PIN  = PB2
 
-.equ LEDDDR		= DDRB
-.equ LEDPORT	= PORTB
-.equ LEDPIN		= PINB
-.equ LED0PIN	= PB1
+.equ LEDDDR   = DDRB
+.equ LEDPORT  = PORTB
+.equ LEDPIN   = PINB
+.equ LED0PIN  = PB1
 
-.equ DSPLDDR	= DDRB
-.equ DSPLPORT	= PORTB
-.equ DSPLPIN	= PINB
-.equ DSPLDIO	= PB3
+.equ DSPLDDR  = DDRB
+.equ DSPLPORT = PORTB
+.equ DSPLPIN  = PINB
+.equ DSPLDIO  = PB3
 .equ DSPLCLK	= PB4
 
-.equ OWMADDR	= DDRB
-.equ OWMAPORT	= PORTB
-.equ OWMAPIN	= PINB
-.equ OWMA0PIN	= PB0
+.equ OWMADDR  = DDRB
+.equ OWMAPORT = PORTB
+.equ OWMAPIN  = PINB
+.equ OWMA0PIN = PB0
 
 /********************************* Event REGistry *******************************/
-.equ _MTLF_		= 0 ; Measure Time Line Flag
-.equ _MIOF_		= 1 ; Measure Is Over Flag
-.equ _DIRF_		= 2 ; Display Is Run Flag
-.equ _NSF_		= 3 ; Negative Sign Flag
+.equ _MTLF_   = 0 ; Measure Time Line Flag
+.equ _MIOF_   = 1 ; Measure Is Over Flag
+.equ _DIRF_   = 2 ; Display Is Run Flag
+.equ _NSF_    = 3 ; Negative Sign Flag
 
 /******************************** OneWire REGistry ******************************/
-.equ _MIF_		= 0 ; Measure Interval Flag
-.equ _SRF_		= 1 ; Send Reset Flag
-.equ _SOF_		= 2 ; Slave On-line Flag
-.equ _SBF_		= 3 ; Send Byte Flag
-.equ _RBF_		= 4 ; Read Byte Flag
-.equ _750ms_	= 5
-.equ _2ms_		= 6
-.equ _CRCEF_	= 7 ; CRC Error Flag
+.equ _MIF_    = 0 ; Measure Interval Flag
+.equ _SRF_    = 1 ; Send Reset Flag
+.equ _SOF_    = 2 ; Slave On-line Flag
+.equ _SBF_    = 3 ; Send Byte Flag
+.equ _RBF_    = 4 ; Read Byte Flag
+.equ _750ms_  = 5
+.equ _2ms_    = 6
+.equ _CRCEF_  = 7 ; CRC Error Flag
 
 
 
