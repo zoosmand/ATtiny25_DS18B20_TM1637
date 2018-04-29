@@ -39,12 +39,12 @@ SET_DISPLAY_SYMBOLS:
 
   _CHECK_NEGATIVE:
     sbrs tmpH, 7
-	rjmp _GET_DECIMAL_DATA
-	inc tmpH
-	neg tmpH
-	inc tmpL
-	neg tmpL
-	SET_FLAG _EREG_, (1<<_NSF_)
+    rjmp _GET_DECIMAL_DATA
+    inc tmpH
+    neg tmpH
+    inc tmpL
+    neg tmpL
+    SET_FLAG _EREG_, (1<<_NSF_)
 
   ;********** Get Decimal **********
   _GET_DECIMAL_DATA:
