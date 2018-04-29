@@ -5,21 +5,21 @@
  *   Author: zoosman
  */ 
 
-rjmp _RESET 		;Reset
-rjmp _INT0 			;IRQ0
-rjmp _PCINT0 		;PCINT0
-rjmp _TIMER1_COMPA 	;Timer1 CompareA
-rjmp _TIMER1_OVF 	;Timer1 Overflow
-rjmp _TIMER0_OVF 	;Timer0 Overflow
-rjmp _EE_RDY 		;EEPROM Ready
-rjmp _ANA_COMP 		;Analog Comparator
-rjmp _ADC 			;ADC Conversion Complete
-rjmp _TIMER1_COMPB 	;Timer1 CompareB
-rjmp _TIMER0_COMPA 	;Timer0 CompareA
-rjmp _TIMER0_COMPB 	;Timer0 CompareB
-rjmp _WDT 			;Watchdog Timeout
-rjmp _USI_START 	;USI Start
-rjmp _USI_OVF 		;USI Overflow
+rjmp _RESET          ;Reset
+rjmp _INT0           ;IRQ0
+rjmp _PCINT0         ;PCINT0
+rjmp _TIMER1_COMPA   ;Timer1 CompareA
+rjmp _TIMER1_OVF     ;Timer1 Overflow
+rjmp _TIMER0_OVF     ;Timer0 Overflow
+rjmp _EE_RDY         ;EEPROM Ready
+rjmp _ANA_COMP       ;Analog Comparator
+rjmp _ADC            ;ADC Conversion Complete
+rjmp _TIMER1_COMPB   ;Timer1 CompareB
+rjmp _TIMER0_COMPA   ;Timer0 CompareA
+rjmp _TIMER0_COMPB   ;Timer0 CompareB
+rjmp _WDT            ;Watchdog Timeout
+rjmp _USI_START      ;USI Start
+rjmp _USI_OVF        ;USI Overflow
 
 
 
