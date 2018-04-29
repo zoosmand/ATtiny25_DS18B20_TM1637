@@ -31,14 +31,14 @@
   ; o - 0x4e
 
 .dseg
-;.org 0x0060
-  _EREG_:			.byte 1
-  _OWREG_:			.byte 1
-  scratchpad:		.byte 9
-  owAddress:		.byte 8
-  displaySymbols:	.byte 4
-  displayBuffer:	.byte 2
-  decnum:			.byte 3
+.org 0x0060
+  _EREG_:            .byte 1
+  _OWREG_:           .byte 1
+  scratchpad:        .byte 9
+  owAddress:         .byte 8
+  displaySymbols:    .byte 4
+  displayBuffer:     .byte 2
+  decnum:            .byte 3
 
 
 
