@@ -2,7 +2,7 @@
  * tm1637.inc
  *
  *  Created: 05.04.2018 8:56:06
- *   Author: setup
+ *   Author: zoosman
  */ 
 
 TM1637_START:
