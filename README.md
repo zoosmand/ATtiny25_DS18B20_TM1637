@@ -13,4 +13,4 @@ EXTENDED 0xff
 
 Reference frequency is 1000000ul to have right delays for.
 
-Add a PNP transistop to switch up power line for OW and display 
+Add a PNP transistor to power up OW and display line after button is pressed.
