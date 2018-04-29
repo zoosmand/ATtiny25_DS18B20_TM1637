@@ -1,5 +1,5 @@
 ;
-; ATtiny85 AS (termometer).asm
+; ATtiny25 AS (thermometer).asm
 ;
 ; Created: 30.03.2018 20:42:19
 ; Author : zoosman
