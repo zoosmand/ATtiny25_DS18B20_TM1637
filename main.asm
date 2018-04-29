@@ -8,17 +8,17 @@
 .include "tn25def.inc"
 .equ F_CPU = 1000000
 
-.def CRC		= R10
-.def tmpCRC		= R11
-.def dsplByte	= R12
-.def tmp		= R16
-.def tmpA		= R17
-.def txByte		= R18
-.def rxByte		= R19
-.def tmpL		= R20
-.def tmpH		= R21
-.def tmpZ		= R22
-.def tmpD		= R23
+.def CRC      = R10
+.def tmpCRC   = R11
+.def dsplByte = R12
+.def tmp      = R16
+.def tmpA     = R17
+.def txByte   = R18
+.def rxByte   = R19
+.def tmpL     = R20
+.def tmpH     = R21
+.def tmpZ     = R22
+.def tmpD     = R23
 
 
 .equ INTDDR		= DDRB
