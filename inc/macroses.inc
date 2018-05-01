@@ -1,9 +1,9 @@
-/*
- * macroses.inc
- *
- *  Created: 31.03.2018 17:52:33
- *   Author: zoosman
- */ 
+;/*
+; * macroses.inc
+; *
+; *  Created: 31.03.2018 17:52:33
+; *   Author: zoosman
+; */ 
 
 .MACRO SET_FLAG
   lds tmp, @0
