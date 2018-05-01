@@ -1,24 +1,23 @@
-/*
- * utils.inc
- *
- *  Created: 30.03.2018 22:30:49
- *   Author: zoosman
- */ 
+;/*
+; * utils.inc
+; *
+; *  Created: 30.03.2018 22:30:49
+; *   Author: zoosman
+; */ 
 
 
  
-/***************************** LED0 BLINK ***************************/
+;/***************************** LED0 BLINK ***************************/
 LED_BLINK:
-  _IF_01:
-    sbis LEDPIN, LED0PIN
-    rjmp _LED_BLINK_UP
-    cbi LEDPORT, LED0PIN
-    ret
+  sbis LEDPIN, LED0PIN
+  rjmp _LED_BLINK_UP
+  cbi LEDPORT, LED0PIN
+  ret
   _LED_BLINK_UP:
     sbi LEDPORT, LED0PIN
     ret
 
-/**************************** Clear Timer ***************************/
+;/**************************** Clear Timer ***************************/
 CLEAR_TIMER:
   cli
   in tmp, TCCR0B
@@ -29,7 +28,7 @@ CLEAR_TIMER:
   out TIMSK, tmp
   reti
 
-/**************************** DELAY 2ms *****************************/
+;/**************************** DELAY 2ms *****************************/
 DELAY_2ms:
   cli
   in tmp, TCCR0B
@@ -53,7 +52,7 @@ DELAY_2ms:
   rcall CLEAR_TIMER
   ret
 
-/*****************************  750ms Delay ************************/
+;/*****************************  750ms Delay ************************/
 DELAY_750ms:
   push R0
   cli
@@ -74,13 +73,13 @@ DELAY_750ms:
 
     clr tmp
     out TCNT0, tmp
-
     _OW_DELAY_250ms:
-	  in tmp, TIFR
-	  sbrs tmp, OCF0B
+      in tmp, TIFR
+      sbrs tmp, OCF0B
       rjmp _OW_DELAY_250ms
+
     dec R0
-	brne _OW_DELAY_750ms
+    brne _OW_DELAY_750ms
   
   rcall CLEAR_TIMER
   pop R0
