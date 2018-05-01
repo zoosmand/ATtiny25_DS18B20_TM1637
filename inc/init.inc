@@ -1,11 +1,11 @@
-/*
- * init.inc
- *
- *  Created: 30.03.2018 22:29:21
- *   Author: zoosman
- */ 
+;/*
+; * init.inc
+; *
+; *  Created: 30.03.2018 22:29:21
+; *   Author: zoosman
+; */ 
 
- /**************************** START AFTER POWER UP OR RESET FROM ******************************/
+;/**************************** START AFTER POWER UP OR RESET FROM ******************************/
 _RESET:
   clr R1
   out SREG, R1
@@ -17,30 +17,29 @@ _RESET:
   SET_FLAG _EREG_, (1<<_MIOF_)|(1<<_DIRF_)
 
 cli
-/******************************************* Timers *********************************************/
-/*
-INIT_TIMER0:
-  in tmp, TCCR0B
-  sbr tmp, (1<<CS02)|(1<<CS00) // 1024
-  out TCCR0B, tmp
-  in tmp, TIMSK
-  sbr tmp, (1<<TOIE0)
-  out TIMSK, tmp
-  clr tmp // 256
-  out TCNT0, tmp
-*/
+;/******************************************* Timers *********************************************/
+;INIT_TIMER0:
+;  in tmp, TCCR0B
+;  sbr tmp, (1<<CS02)|(1<<CS00) ; 1024
+;  out TCCR0B, tmp
+;  in tmp, TIMSK
+;  sbr tmp, (1<<TOIE0)
+;  out TIMSK, tmp
+;  clr tmp ; 256
+;  out TCNT0, tmp
+
 
 ;INIT_TIMER1:
 ;  in tmp, TCCR1
-;  sbr tmp, (1<<CS10)|(1<<CS11)|(1<<CS12)|(1<<CS13) // 16384
+;  sbr tmp, (1<<CS10)|(1<<CS11)|(1<<CS12)|(1<<CS13) ; 16384
 ;  out TCCR1, tmp
 ;  in tmp, TIMSK
 ;  sbr tmp, (1<<TOIE1)
 ;  out TIMSK, tmp
-;  clr tmp // 256
+;  clr tmp ; 256
 ;  out TCNT1, tmp
 
-/***************************************** Reduce Power *****************************************/
+;/***************************************** Reduce Power *****************************************/
 INIT_POWERMODE:
   in tmp, ACSR
   sbr tmp, (1<<ACD)
@@ -50,19 +49,19 @@ INIT_POWERMODE:
   sbr tmp, (1<<PRUSI)|(1<<PRADC)
   out PRR, tmp
 
-/************************************** External Interrupt **************************************/
+;/************************************** External Interrupt **************************************/
 INIT_EXTINT:
   in tmp, GIMSK
   sbr tmp, (1<<INT0)
   out GIMSK, tmp
 
- /************************************ Sleep Mode (Power down) ***********************************/
+;/************************************ Sleep Mode (Power down) ***********************************/
 INIT_SLEEPMODE:
   in tmp, MCUCR
   sbr tmp, (1<<SM1)
   out MCUCR, tmp
 
-/**************************************** WatchDog Timer ****************************************/
+;/**************************************** WatchDog Timer ****************************************/
 INIT_WATCHDOG:
   in tmp, WDTCR
   sbr tmp, (1<<WDCE)|(1<<WDE)
@@ -72,18 +71,18 @@ INIT_WATCHDOG:
 
 sei
 
-/***************************************** INT Button *******************************************/
+;/***************************************** INT Button *******************************************/
 INIT_INT:
   in tmp, INTPORT
   sbr tmp, (1<<INT0PIN)
   out INTPORT, tmp
 
-/******************************************* LED ************************************************/
+;/******************************************* LED ************************************************/
 INIT_LED:
   sbi LEDDDR, LED0PIN
   sbi LEDPORT, LED0PIN
 
-/*************************************** OneWire Master *****************************************/
+;/*************************************** OneWire Master *****************************************/
 INIT_OWMA:
   cbi OWMAPORT, OWMA0PIN
   cbi OWMADDR, OWMA0PIN
