@@ -28,7 +28,7 @@ _INT0:
   cbi LEDPORT, LED0PIN
 
   in tmp, TCCR1
-  sbr tmp, (1<<CS10)|(1<<CS11)|(1<<CS12)|(1<<CS13) // 16384
+  sbr tmp, (1<<CS10)|(1<<CS11)|(1<<CS12)|(1<<CS13) ; 16384
   out TCCR1, tmp
   in tmp, TIMSK
   sbr tmp, (1<<TOIE1)
@@ -91,7 +91,7 @@ _TIMER1_OVF:
   sbi LEDPORT, LED0PIN
 
   in tmp, TCCR1
-  cbr tmp, (1<<CS10)|(1<<CS11)|(1<<CS12)|(1<<CS13) // 16384
+  cbr tmp, (1<<CS10)|(1<<CS11)|(1<<CS12)|(1<<CS13) ; 16384
   out TCCR1, tmp
   in tmp, TIMSK
   cbr tmp, (1<<TOIE1)
