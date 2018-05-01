@@ -5,7 +5,7 @@ Created with AlmelStudio 7.0.1645. ATtiny_DFP version 1.3.172.
 
 Stay fuses as they shiped.
 
-HIGH 0x9f
+HIGH 0xdf
 
 LOW 0x62
 
