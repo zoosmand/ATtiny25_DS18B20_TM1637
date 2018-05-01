@@ -1,9 +1,9 @@
-/*
- * vectors.inc
- *
- *  Created: 30.03.2018 22:27:14
- *   Author: zoosman
- */ 
+;/*
+; * vectors.inc
+; *
+; *  Created: 30.03.2018 22:27:14
+; *   Author: zoosman
+; */ 
 
 rjmp _RESET          ;Reset
 rjmp _INT0           ;IRQ0
@@ -23,7 +23,7 @@ rjmp _USI_OVF        ;USI Overflow
 
 
 
-/*************************** INTERRUPT VECTORS *****************************/
+;/*************************** INTERRUPT VECTORS *****************************/
 ;_INT0:
 _PCINT0:
 _TIMER1_COMPA:
