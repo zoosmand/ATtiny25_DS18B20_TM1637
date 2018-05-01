@@ -169,8 +169,7 @@ READ_SCRATCHPAD:
     rcall CHECK_CRC
     dec R1
     brne _OW_READ_SCRATCHPAD
-
-ret
+  ret
 
 
 ;/******************* Read ROM Address from EEPROM ******************/
