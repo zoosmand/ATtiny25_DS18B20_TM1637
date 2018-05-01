@@ -33,7 +33,7 @@ CLEAR_TIMER:
 DELAY_2ms:
   cli
   in tmp, TCCR0B
-  sbr tmp, (1<<CS01) // 8
+  sbr tmp, (1<<CS01) ; 8
   out TCCR0B, tmp
   in tmp, TIMSK
   sbr tmp, (1<<OCIE0B)
@@ -58,7 +58,7 @@ DELAY_750ms:
   push R0
   cli
   in tmp, TCCR0B
-  sbr tmp, (1<<CS02)|(1<<CS02) // 1024
+  sbr tmp, (1<<CS02)|(1<<CS02) ; 1024
   out TCCR0B, tmp
   in tmp, TIMSK
   sbr tmp, (1<<OCIE0B)
