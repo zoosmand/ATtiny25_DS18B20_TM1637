@@ -42,13 +42,13 @@
 .equ OWMAPIN  = PINB
 .equ OWMA0PIN = PB0
 
-/********************************* Event REGistry *******************************/
+;/********************************* Event REGistry *******************************/
 .equ _MTLF_   = 0 ; Measure Time Line Flag
 .equ _MIOF_   = 1 ; Measure Is Over Flag
 .equ _DIRF_   = 2 ; Display Is Run Flag
 .equ _NSF_    = 3 ; Negative Sign Flag
 
-/******************************** OneWire REGistry ******************************/
+;/******************************** OneWire REGistry ******************************/
 .equ _MIF_    = 0 ; Measure Interval Flag
 .equ _SRF_    = 1 ; Send Reset Flag
 .equ _SOF_    = 2 ; Slave On-line Flag
@@ -70,7 +70,7 @@
 
 
   
-/************************************ MAIN LOOP *********************************/
+;/************************************ MAIN LOOP *********************************/
 MAIN:
   SKIP_FLAG_SET _EREG_, _MTLF_
   rjmp _GO_TO_SLEEP
@@ -95,7 +95,7 @@ MAIN:
 .include "./inc/interrupts.inc"
 
 
-/******************************* Make Measurement ******************************/
+;/******************************* Make Measurement ******************************/
 MAKE_MEASURE:
   SKIP_FLAG_CLEAR _EREG_, _MIOF_
   ret
@@ -105,7 +105,7 @@ MAKE_MEASURE:
   SET_FLAG _EREG_, (1<<_MIOF_)
   ret
 
-/****************************** Show Data on Display ***************************/
+;/****************************** Show Data on Display ***************************/
 RUN_DISPLAY:
   SKIP_FLAG_CLEAR _EREG_, _DIRF_
   ret
@@ -121,7 +121,7 @@ RUN_DISPLAY:
   SET_FLAG _EREG_, (1<<_DIRF_)
   ret
 
-/************************************ THE END **********************************/
+;/************************************ THE END **********************************/
 THE_END:
   cli
   rjmp 0
