@@ -68,15 +68,15 @@ _WDT:
 /******************************************* TIMER0 *****************************************/
 _TIMER0_COMPB:
 _TIMER0_OVF:
- /* push R1
-  push R0
-  in R0, SREG
-  push R0
+;  push R1
+;  push R0
+;  in R0, SREG
+;  push R0
 
-  pop R0
-  out SREG, R0
-  pop R0
-  pop R1*/
+;  pop R0
+;  out SREG, R0
+;  pop R0
+;  pop R1
   reti
 
 /******************************************* TIMER1 *****************************************/
@@ -96,7 +96,7 @@ _TIMER1_OVF:
   in tmp, TIMSK
   cbr tmp, (1<<TOIE1)
   out TIMSK, tmp
-  clr tmp // 256
+  clr tmp ; 256
   out TCNT1, tmp
 
   pop R0
