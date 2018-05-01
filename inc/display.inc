@@ -1,14 +1,14 @@
-/*
- * display.inc
- *
- *  Created: 04.04.2018 17:41:29
- *   Author: setup
- */
+;/*
+; * display.inc
+; *
+; *  Created: 04.04.2018 17:41:29
+; *   Author: setup
+; */
 
 .include "./inc/tm1637.inc"
 
 
-/* //////////////////////////////////////// Display ///////////////////////////////////////////// */
+;/* //////////////////////////////////////// Display ///////////////////////////////////////////// */
 DISPLAY_RUN:
   rcall DELAY_2ms
   sbi DSPLDDR, DSPLDIO
@@ -23,7 +23,7 @@ DISPLAY_RUN:
   ret
 
 
-/* ///////////////////////////////// Prepare Data For Out ////////////////////////////////////// */
+;/* ///////////////////////////////// Prepare Data For Out ////////////////////////////////////// */
 SET_DISPLAY_SYMBOLS:
   push ZH
   push ZL
@@ -46,7 +46,7 @@ SET_DISPLAY_SYMBOLS:
     neg tmpL
     SET_FLAG _EREG_, (1<<_NSF_)
 
-  ;********** Get Decimal **********
+  ;*************** Get Decimal ***************
   _GET_DECIMAL_DATA:
     mov tmp, tmpL
     andi tmp, (0x0f<<0)
@@ -72,7 +72,7 @@ SET_DISPLAY_SYMBOLS:
     ld tmp, -Y
     ld tmpD, -Y
 
-  ;********** Get Integral **********
+  ;*************** Get Integral ***************
   ldi tmp, 0x04
   mov R0, tmp
   _DIV_INTEGRAL_BY_16:
@@ -105,9 +105,7 @@ SET_DISPLAY_SYMBOLS:
 
   _BIN8_DEC3_EXIT:
     CLEAR_FLAG _EREG_, (1<<_NSF_)
-  ;********************
-
-  rjmp _SET_DISPLAY_SYMBOLS_EXIT
+    rjmp _SET_DISPLAY_SYMBOLS_EXIT
 
   _DISPLAY_ERROR:
     ldi YH, high(displaySymbols)
@@ -127,7 +125,7 @@ SET_DISPLAY_SYMBOLS:
   ret
 
 
-/* /////////////////////////////////// Binary to Decimal /////////////////////////////////////// */
+;/* /////////////////////////////////// Binary to Decimal /////////////////////////////////////// */
 BIN8_DEC3:
   push tmp
   push R0
@@ -138,10 +136,10 @@ BIN8_DEC3:
   _BD1:
     clr tmpZ
     ldi tmp, 0x08
-	mov R1, tmp
+    mov R1, tmp
   _BD2:
     lsl tmpL
-	rol tmpZ
+    rol tmpZ
     andi tmpL, 0xfe
     cpi tmpZ, 0x0a
     brcs _BD3
@@ -160,7 +158,7 @@ BIN8_DEC3:
   pop tmp
   ret
 
-/* ///////////////////////////////// Multiplify 8-bit by 100 //////////////////////////////////// */
+;/* ///////////////////////////////// Multiplify 8-bit by 100 //////////////////////////////////// */
 MUL_8BIT_BY_100:
   clr r1
   add r0,r0
@@ -181,9 +179,3 @@ MUL_8BIT_BY_100:
   add r0,r4
   adc r1,r5
   ret
-/* ////////////////////////////////////////////////////////////////////////////////////////////// */
-
-
-
-
-
