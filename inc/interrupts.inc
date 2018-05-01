@@ -33,7 +33,7 @@ _INT0:
   in tmp, TIMSK
   sbr tmp, (1<<TOIE1)
   out TIMSK, tmp
-  clr tmp // 256
+  clr tmp ; 256
   out TCNT1, tmp
 
   _MAIN_WAIT_BUTTON_UP:
